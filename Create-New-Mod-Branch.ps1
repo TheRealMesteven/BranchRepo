@@ -52,7 +52,8 @@ if (Test-Path $WorktreePath) {
 
 # Create orphan branch and worktree
 try {
-    git worktree add -b $ModName $WorktreePath  # Adds branch and worktree in one step
+    $FirstCommit = git rev-list --max-parents=0 HEAD
+    git worktree add -b $ModName $WorktreePath $FirstCommit
     Push-Location $WorktreePath
     git commit --allow-empty -m "Initial commit for $ModName"  # Needed for orphan branches
     Pop-Location
