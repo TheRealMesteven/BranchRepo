@@ -21,6 +21,7 @@ will be replaced by the scripts.
 2. Create a github repository and copy the URL.
 3. Run `Create-Repo.ps1` and paste in the URL.
 **Make sure to have a template in your templates section. Otherwise an empty branch will be created and the `.sln` file wont be updated with the new project reference.**
+Also dont put a space in the mod name. I dont have error handling for it.
 5. Run `Create-New-Mod-Branch.ps1` and fill in the name, description and author.
 
 ## Public example
