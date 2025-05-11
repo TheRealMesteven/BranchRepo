@@ -21,3 +21,7 @@ will be replaced by the scripts.
 2. Create a github repository and copy the URL.
 3. Run `Create-Repo.ps1` and paste in the URL.
 4. Run `Create-New-Mod-Branch.ps1` and fill in the name, description and author.
+
+## Public example
+Currently using it for my PulsarLostColony public and private mods.
+Public : https://github.com/TheRealMesteven/PulsarLostColony-PublicMods/tree/Home
