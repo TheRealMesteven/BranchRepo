@@ -64,8 +64,14 @@ try {
 Write-Host "Created new orphan branch '$ModName' from '$BaseBranch' at '$WorktreePath'"
 
 # Copy template files
-Write-Host "Copying template files from '$TemplatePath' to '$WorktreePath'"
-Copy-Item -Path "$TemplatePath" -Destination $WorktreePath -Recurse -Force
+# Copy the Template folder into the worktree
+$TemplateCopyPath = Join-Path $WorktreePath "Template"
+Write-Host "Copying template folder to '$TemplateCopyPath'"
+Copy-Item -Path $TemplatePath -Destination $TemplateCopyPath -Recurse -Force
+
+# Rename 'Template' folder to match ModName
+$ModFolderPath = Join-Path $WorktreePath "src"
+Rename-Item -Path $TemplateCopyPath -NewName "src" -ErrorAction Stop
 
 # Process files to replace placeholders
 $FilesToProcess = Get-ChildItem -Path $WorktreePath -Recurse -Include "*.cs", "*.csproj", "*.sln", "*.txt", "*.json"
