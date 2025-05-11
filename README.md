@@ -1,4 +1,4 @@
-# BranchRepo
+# Mod Branch Repository Storage
 Some scripts to store mods in branches of a repository whilst being editable through the same .sln file via worktrees.
 
 Currently is a work in progress (scripts are a bit of a pain). Theres no guaranteed error checks and you will probably be deleting branches and repositories if something breaks.
