@@ -50,11 +50,12 @@ if (Test-Path $WorktreePath) {
     exit 1
 }
 
-# Create orphan branch and worktree (empty, with no files or history)
+# Create orphan branch and worktree
 try {
-    git checkout --orphan $ModName  # Create orphan branch
-    git rm -rf .  # Remove all tracked files from the new orphan branch
-    git worktree add $WorktreePath $ModName
+    git worktree add -b $ModName $WorktreePath  # Adds branch and worktree in one step
+    Push-Location $WorktreePath
+    git commit --allow-empty -m "Initial commit for $ModName"  # Needed for orphan branches
+    Pop-Location
 } catch {
     Write-Host "Error creating orphan branch or worktree: $_" -ForegroundColor Red
     exit 1
